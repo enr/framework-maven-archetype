@@ -29,23 +29,23 @@
 
       <!-- framework -->
       <dependency>
-        <groupId>${groupId}</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>dependencies</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${groupId}</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${groupId}</groupId>
+        <groupId>${project.groupId}</groupId>
         <artifactId>testkit</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>${groupId}</groupId>
-        <artifactId>testsupport</artifactId>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>build-settings</artifactId>
         <version>${project.version}</version>
       </dependency>
 

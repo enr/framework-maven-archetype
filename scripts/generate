@@ -37,6 +37,12 @@ cd myframework
 
 mvn install
 
+echo -n "mvn -Pfmt -X" && pwd
+mvn -Pfmt
+
+echo -n "mvn -Pci -X" && pwd
+mvn -Pci
+
 mvn org.codehaus.mojo:versions-maven-plugin:2.17.0:display-dependency-updates 
 
 ls -al

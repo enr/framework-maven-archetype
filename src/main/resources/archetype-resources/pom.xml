@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${groupId}</groupId>
@@ -28,7 +29,6 @@
       </activation>
       <id>default</id>
       <modules>
-        <module>coverage</module>
         <module>build-settings</module>
       </modules>
       <properties>
@@ -45,15 +45,12 @@
       <activation>
       </activation>
       <id>ci</id>
-      <modules>
-        <module>coverage</module>
-      </modules>
       <properties>
         <build.profile.id>ci</build.profile.id>
         <surefire.test.phase>test</surefire.test.phase>
         <buildinfo.generate.phase>initialize</buildinfo.generate.phase>
         <fmt.check.phase>validate</fmt.check.phase>
-        <fmt.repair.phase>process-sources</fmt.repair.phase>
+        <fmt.repair.phase>none</fmt.repair.phase>
       </properties>
       <build>
         <defaultGoal>verify</defaultGoal>
@@ -128,19 +125,12 @@
       </activation>
       <id>fmt</id>
       <properties>
-        <build.profile.id>repair</build.profile.id>
+        <build.profile.id>fmt</build.profile.id>
         <surefire.test.phase>none</surefire.test.phase>
         <buildinfo.generate.phase>none</buildinfo.generate.phase>
         <fmt.check.phase>none</fmt.check.phase>
         <fmt.repair.phase>process-sources</fmt.repair.phase>
       </properties>
-      <dependencies>
-        <dependency>
-          <groupId>com.github.enr.archetype</groupId>
-          <artifactId>build-settings</artifactId>
-          <version>${build-settings.version}</version>
-        </dependency>
-      </dependencies>
       <build>
         <defaultGoal>process-sources</defaultGoal>
         <plugins>
@@ -243,7 +233,7 @@
           <version>2.23.0</version>
           <dependencies>
             <dependency>
-              <groupId>com.github.enr.archetype</groupId>
+              <groupId>${project.groupId}</groupId>
               <artifactId>build-settings</artifactId>
               <version>${build-settings.version}</version>
             </dependency>
