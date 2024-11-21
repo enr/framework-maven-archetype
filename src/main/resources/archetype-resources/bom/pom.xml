@@ -4,16 +4,16 @@
 
   <parent>
     <groupId>${groupId}</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>${rootArtifactId}-parent</artifactId>
     <version>${version}</version>
   </parent>
 
-  <artifactId>bom</artifactId>
+  <artifactId>${rootArtifactId}-bom</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.10.3</junit.version>
+    <junit.version>5.11.3</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -30,22 +30,22 @@
       <!-- framework -->
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>dependencies</artifactId>
+        <artifactId>${rootArtifactId}-dependencies</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>core</artifactId>
+        <artifactId>${rootArtifactId}-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>testkit</artifactId>
+        <artifactId>${rootArtifactId}-testkit</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>build-settings</artifactId>
+        <artifactId>${rootArtifactId}-build-settings</artifactId>
         <version>${project.version}</version>
       </dependency>
 
@@ -68,7 +68,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>5.12.0</version>
+        <version>5.14.2</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

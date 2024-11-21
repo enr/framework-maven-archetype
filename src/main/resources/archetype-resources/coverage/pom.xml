@@ -4,18 +4,18 @@
 
   <parent>
     <groupId>${groupId}</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>${rootArtifactId}-parent</artifactId>
     <version>${version}</version>
   </parent>
 
-  <artifactId>coverage</artifactId>
+  <artifactId>${rootArtifactId}-coverage</artifactId>
   <packaging>pom</packaging>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>${groupId}</groupId>
-        <artifactId>bom</artifactId>
+        <artifactId>${rootArtifactId}-bom</artifactId>
         <version>${version}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -26,11 +26,11 @@
   <dependencies>
     <dependency>
       <groupId>${groupId}</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>${rootArtifactId}-core</artifactId>
     </dependency>
     <dependency>
       <groupId>${groupId}</groupId>
-      <artifactId>testkit</artifactId>
+      <artifactId>${rootArtifactId}-testkit</artifactId>
     </dependency>
   </dependencies>
 

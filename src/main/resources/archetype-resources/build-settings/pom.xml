@@ -7,11 +7,11 @@
 
   <parent>
     <groupId>${groupId}</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>${rootArtifactId}-parent</artifactId>
     <version>${version}</version>
   </parent>
 
-  <artifactId>build-settings</artifactId>
+  <artifactId>${rootArtifactId}-build-settings</artifactId>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -47,7 +47,7 @@
         </fileSet>
       </fileSets>
       <modules>
-        <module id="core" dir="core" name="core">
+        <module id="core" dir="__rootArtifactId__-core" name="core">
           <fileSets>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
               <directory>src/main/java</directory>
@@ -75,7 +75,7 @@
             </fileSet>
           </fileSets>
         </module>
-        <module id="testkit" dir="testkit" name="testkit">
+        <module id="testkit" dir="__rootArtifactId__-testkit" name="testkit">
           <fileSets>
             <fileSet filtered="true" encoding="UTF-8">
               <directory></directory>

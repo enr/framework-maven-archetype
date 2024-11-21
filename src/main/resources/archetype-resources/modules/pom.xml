@@ -4,11 +4,11 @@
 
   <parent>
     <groupId>${groupId}</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>${rootArtifactId}-parent</artifactId>
     <version>${version}</version>
   </parent>
 
-  <artifactId>modules</artifactId>
+  <artifactId>${rootArtifactId}-modules</artifactId>
   <packaging>pom</packaging>
 
   <properties>
@@ -20,7 +20,7 @@
     <dependencies>
       <dependency>
         <groupId>${groupId}</groupId>
-        <artifactId>bom</artifactId>
+        <artifactId>${rootArtifactId}-bom</artifactId>
         <version>${version}</version>
         <type>pom</type>
         <scope>import</scope>
