@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.${artifactId};
 
-import static org.assertj.${artifactId}.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
