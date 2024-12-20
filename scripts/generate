@@ -14,7 +14,7 @@ hash mvn 2>/dev/null || {
   exit 1
 }
 
-archetype_version=$(mvn org.apache.maven.plugins:maven-help-plugin:3.4.1:evaluate -Dexpression=project.version -q -DforceStdout)
+archetype_version=$(mvn org.apache.maven.plugins:maven-help-plugin:3.5.1:evaluate -Dexpression=project.version -q -DforceStdout)
 
 echo "Build archetype version ${archetype_version}"
 
@@ -43,6 +43,16 @@ mvn -Pfmt
 echo -n "mvn -Pci -X" && pwd
 mvn -Pci
 
-mvn org.codehaus.mojo:versions-maven-plugin:2.17.0:display-dependency-updates 
+echo '---'
+echo '--- Plugins updates'
+mvn -Dmaven.version.ignore='(?i).*-(alpha|beta|m|rc)([-.]?\d+)?' \
+    org.codehaus.mojo:versions-maven-plugin:2.18.0:display-plugin-updates \
+    | grep --color=never '\[INFO\]   ' | sort | uniq
+echo '--- Dependencies updates'
+mvn -Dmaven.version.ignore='(?i).*-(alpha|beta|m|rc)([-.]?\d+)?' \
+    org.codehaus.mojo:versions-maven-plugin:2.18.0:display-dependency-updates \
+    | grep --color=never '\[INFO\]   ' | sort | uniq
+echo '---'
+
 
 ls -al
