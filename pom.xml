@@ -5,7 +5,7 @@
 
   <groupId>com.github.enr.archetypes</groupId>
   <artifactId>framework-maven-archetype</artifactId>
-  <version>0.5.0-SNAPSHOT</version>
+  <version>0.4.1</version>
   <packaging>maven-archetype</packaging>
 
   <properties>
