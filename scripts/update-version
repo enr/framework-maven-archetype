@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -e
+
+tool_source="${BASH_SOURCE[0]}"
+while [ -h "$tool_source" ] ; do tool_source="$(readlink "$tool_source")"; done
+sdlc_dir="$( cd -P "$( dirname "$tool_source" )" && pwd )"
+prj_home="$( cd -P "$( dirname "$sdlc_dir" )" && pwd )"
+
+echo "Project home ${prj_home}"
+cd "${prj_home}"
+
+hash mvn 2>/dev/null || {
+  echo 'No Maven executable: aborting release'
+  exit 1
+}
+
+release_suffix=''
+versioned_group_id='com.github.enr.archetypes'
+snapshot_commit_prefix='[skip ci]'
+
+[[ -n "$1" ]] || {
+  echo 'Missing update version: aborting release'
+  echo "Update version should be in the format 1.2.3 : pom version will be set to 1.2.3${release_suffix} and the tag will be v1.2.3${release_suffix}"
+  exit 1
+}
+release_version="${1}${release_suffix}"
+echo "Update version to ${release_version}"
+
+mvn org.codehaus.mojo:versions-maven-plugin:set -DgroupId=${versioned_group_id} '-DartifactId=*' "-DnewVersion=${release_version}"
+mvn org.codehaus.mojo:versions-maven-plugin:commit
