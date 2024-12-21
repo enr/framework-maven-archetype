@@ -79,7 +79,7 @@ maven_config="${prj_home}/.mvn/maven.config"
 
 function cleanup() {
     echo "Cleanup..."
-    rm -r "$maven_config"
+    [[ -r "${maven_config}" ]] && rm -r "$maven_config"
 }
 trap cleanup EXIT
 trap cleanup SIGINT
