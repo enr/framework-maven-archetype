@@ -15,6 +15,6 @@ Generate project:
 mvn archetype:generate -B \
     -DarchetypeGroupId=com.github.enr.archetypes \
     -DarchetypeArtifactId=framework-maven-archetype \
-    -DarchetypeVersion=0.3.0 \
+    -DarchetypeVersion=0.4.0 \
     -DgroupId=com.example -DartifactId=myframework -Dpackage=com.example.my.framework -Dversion=1.0.0-SNAPSHOT
 ```
