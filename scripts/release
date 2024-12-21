@@ -41,7 +41,7 @@ BASE=$(git merge-base @ "$upstream")
 }
 
 release_suffix=''
-versioned_group_id='[REPLACEME]'
+versioned_group_id='com.github.enr.archetypes'
 snapshot_commit_prefix='[skip ci]'
 
 [[ -n "$1" ]] || {

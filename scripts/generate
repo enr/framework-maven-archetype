@@ -37,22 +37,14 @@ cd myframework
 
 mvn install
 
-echo -n "mvn -Pfmt -X" && pwd
-mvn -Pfmt
+echo -n "--- fmt " && pwd
+/bin/bash .sdlc/fmt
 
-echo -n "mvn -Pci -X" && pwd
-mvn -Pci
+echo -n "--- ci " && pwd
+/bin/bash .sdlc/ci
 
-echo '---'
-echo '--- Plugins updates'
-mvn -Dmaven.version.ignore='(?i).*-(alpha|beta|m|rc)([-.]?\d+)?' \
-    org.codehaus.mojo:versions-maven-plugin:2.18.0:display-plugin-updates \
-    | grep --color=never '\[INFO\]   ' | sort | uniq
-echo '--- Dependencies updates'
-mvn -Dmaven.version.ignore='(?i).*-(alpha|beta|m|rc)([-.]?\d+)?' \
-    org.codehaus.mojo:versions-maven-plugin:2.18.0:display-dependency-updates \
-    | grep --color=never '\[INFO\]   ' | sort | uniq
-echo '---'
+echo -n "--- available dependencies " && pwd
+/bin/bash .sdlc/available-updates
 
 
 ls -al
