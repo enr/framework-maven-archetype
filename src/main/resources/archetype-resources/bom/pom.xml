@@ -13,7 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.11.4</junit.version>
+    <junit.version>5.13.4</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -53,22 +53,22 @@
       <dependency>
         <groupId>com.squareup.okhttp3</groupId>
         <artifactId>mockwebserver</artifactId>
-        <version>4.12.0</version>
+        <version>5.1.0</version>
       </dependency>
       <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
-        <version>5.5.0</version>
+        <version>5.5.5</version>
       </dependency>
       <dependency>
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
-        <version>3.27.2</version>
+        <version>3.27.3</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>5.15.2</version>
+        <version>5.18.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
