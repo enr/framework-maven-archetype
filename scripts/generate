@@ -54,4 +54,4 @@ echo -n "--- update dependencies " && pwd
 /bin/bash .sdlc/update-deps
 
 echo -n "--- dependencies diff " && pwd
-git diff
+git --no-pager diff
