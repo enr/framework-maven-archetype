@@ -28,9 +28,22 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
+      <directory>.github</directory>
+      <includes>
+        <include>*</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>.mvn</directory>
+      <includes>
+        <include>*</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
         <include>.gitignore</include>
+        <include>.gitattributes</include>
       </includes>
     </fileSet>
   </fileSets>
