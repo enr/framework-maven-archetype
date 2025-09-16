@@ -14,10 +14,15 @@ hash mvn 2>/dev/null || {
   exit 1
 }
 
+[[ -z "$GITHUB_REPOSITORY" ]] && {
+  echo "GITHUB_REPOSITORY is not set: aborting"
+  exit 1
+}
+
 # Comma-delimited list of profiles to activate
 mvn_profiles='release'
 
-mvn_settings_path="${prj_home}/.mvn/settings.xml"
+mvn_settings_path="${prj_home}/.mvn/settings-github.xml"
 [[ -e "$mvn_settings_path" ]] || {
   echo "Maven settings file '${mvn_settings_path}' not found: local install"
   mvn --no-transfer-progress --batch-mode --activate-profiles "$mvn_profiles" install
@@ -25,4 +30,7 @@ mvn_settings_path="${prj_home}/.mvn/settings.xml"
 }
 
 echo "Deploy using Maven settings '${mvn_settings_path}'"
-mvn --no-transfer-progress --batch-mode --activate-profiles "$mvn_profiles" -s "$mvn_settings_path" install deploy
+mvn --no-transfer-progress --batch-mode --activate-profiles "$mvn_profiles" \
+    -s "$mvn_settings_path" install deploy \
+    "-DaltDeploymentRepository=github::https://maven.pkg.github.com/${GITHUB_REPOSITORY}" \
+    "-DaltReleaseDeploymentRepository=github::https://maven.pkg.github.com/${GITHUB_REPOSITORY}"
