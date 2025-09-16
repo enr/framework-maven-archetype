@@ -9,40 +9,40 @@ Java library
 
 ## Development
 
-CI (test, check su formattazione, produzione documentazione...):
+CI (tests, formatting checks, documentation generation...):
 
 ```
-mvn install -Pci
+.sdlc/ci
 ```
 
-Profilo fast (no test, checks, etc...):
+Fast profile (no tests, checks, etc.):
 
 ```
 mvn install -Pfast
 ```
 
-Tag di sorgenti con modifiche versioni dei pom:
+Tag sources with POM version changes:
 
 ```
 ./.sdlc/release [RELEASE_VERSION] [NEXT_SNAPSHOT]
 ```
 
-Esempio, portare la versione `0.0.1-SNAPSHOT` alla versione `0.0.1` e tornare a `0.0.2-SNAPSHOT`:
+Example: bump version from `0.0.1-SNAPSHOT` to `0.0.1` and then to `0.0.2-SNAPSHOT`:
 
 ```
 .sdlc/release 0.0.1 0.0.2
 ```
 
-Profilo release (deployment di javadoc e sources):
+Release profile (deploy javadoc and sources):
 
 ```
 mvn deploy -Prelease
 ```
 
-Riparare formattazione (profilo fmt):
+Fix formatting (fmt profile):
 
 ```
-mvn -Pfmt
+.sdlc/fmt
 ```
 
 Test coverage:
@@ -55,11 +55,4 @@ Generate Java docs:
 
 ```
 mvn org.apache.maven.plugins:maven-javadoc-plugin:3.4.1:aggregate
-```
-
-Download sources e javadoc delle dipendenze:
-
-```
-mvn dependency:sources dependency:resolve -Dhttps.protocols=TLSv1.2
-mvn dependency:sources dependency:resolve -Dclassifier=javadoc -Dhttps.protocols=TLSv1.2
 ```
